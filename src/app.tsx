@@ -1,5 +1,6 @@
 import React = require('react');
 
+
 interface IAppProps {
     name: string;
 };
@@ -14,8 +15,11 @@ class App extends React.Component<IAppProps, IAppState> {
     }
 
     public render(): JSX.Element {
-        return (<div>Hello{this.props.name}
-        </div>);
+        // let style = {
+        //     color: "red"
+        // }
+
+        return (<div>Hello{this.props.name}</div>);
     }
 }
 

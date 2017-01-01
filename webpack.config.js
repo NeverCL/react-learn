@@ -1,6 +1,6 @@
 var webpack = require('webpack');
-var HtmlwebpackPlugin = require('html-webpack-plugin');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var HtmlwebpackPlugin = require('html-webpack-plugin');         //创建html
+var OpenBrowserPlugin = require('open-browser-webpack-plugin'); //打开浏览器
 
 module.exports = {
     // 配置服务器
@@ -32,7 +32,7 @@ module.exports = {
 
     module: {
         loaders: [
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" }//ts-loader
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },//ts-loader
         ],
         preLoaders: [
             { test: /\.js$/, loader: "source-map-loader" }//ts-map
@@ -47,10 +47,10 @@ module.exports = {
         // }),
         new webpack.HotModuleReplacementPlugin(),//hot
         new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.js'),
-        new HtmlwebpackPlugin({
-            title: 'hello',
-            filename: 'index.html'
-        }),
+        // new HtmlwebpackPlugin({
+        //     title: 'hello',
+        //     filename: 'index.html'
+        // }),
         new OpenBrowserPlugin({
             url: 'http://localhost:8080/webpack-dev-server/index.html'
         })

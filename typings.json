@@ -1,7 +1,0 @@
-{
-  "name": "react-learn",
-  "dependencies": {
-    "react": "registry:dt/react#0.14.0+20161211160957",
-    "react-dom": "registry:dt/react-dom#0.14.0+20161229235626"
-  }
-}

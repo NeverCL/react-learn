@@ -9,7 +9,7 @@ module.exports = {
     output: {
         path: 'dist',
         publicPath: 'dist',
-        filename: 'js/bundle.js'
+        filename: 'js/bundle.min.js'
     },
 
     resolve: {
@@ -23,11 +23,16 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.min.js'),
+        new webpack.DefinePlugin({//去除控制台警告
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
         new webpack.optimize.UglifyJsPlugin({//release模式使用
             compress: {
                 warnings: false//去除警告加速
             }
-        }),
-        new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.js')
+        })
     ]
 }

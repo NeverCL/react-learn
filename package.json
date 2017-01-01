@@ -30,8 +30,6 @@
     "html-webpack-plugin": "^2.25.0",
     "open-browser-webpack-plugin": "^0.0.3",
     "source-map-loader": "^0.1.5",
-    "typescript": "^2.1.4",
-    "typings": "^2.1.0",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }
