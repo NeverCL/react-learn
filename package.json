@@ -1,0 +1,36 @@
+{
+  "name": "react-learn",
+  "version": "1.0.0",
+  "description": "React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeverCL/react-learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeverCL/react-learn/issues"
+  },
+  "homepage": "https://github.com/NeverCL/react-learn#readme",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^0.14.55",
+    "@types/react-dom": "^0.14.20",
+    "awesome-typescript-loader": "^3.0.0-beta.17",
+    "html-webpack-plugin": "^2.25.0",
+    "open-browser-webpack-plugin": "^0.0.3",
+    "source-map-loader": "^0.1.5",
+    "typescript": "^2.1.4",
+    "typings": "^2.1.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
