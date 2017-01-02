@@ -1,8 +1,9 @@
 var webpack = require('webpack');
+var HtmlwebpackPlugin = require('html-webpack-plugin');         //创建html
 
 module.exports = {
     entry: {
-        main: './src/main.tsx',
+        main: './src/main',
         vender: ['react', 'react-dom']//第三方库
     },
 
@@ -23,7 +24,11 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.min.js'),
+        new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.min.js'),//打包框架
+        new HtmlwebpackPlugin({//新建html
+            title: 'hello',
+            filename: 'index.html'
+        }),
         new webpack.DefinePlugin({//去除控制台警告
             'process.env': {
                 NODE_ENV: JSON.stringify('production')

@@ -14,7 +14,7 @@ module.exports = {
     },
 
     entry: {
-        main: './src/main.tsx',
+        main: './src/main',
         vender: ['react', 'react-dom']//第三方库
     },
 
@@ -40,17 +40,12 @@ module.exports = {
     },
 
     plugins: [
-        // new webpack.optimize.UglifyJsPlugin({//release模式使用
-        //     compress: {
-        //         warnings: false//去除警告加速
-        //     }
-        // }),
         new webpack.HotModuleReplacementPlugin(),//hot
         new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.js'),
-        // new HtmlwebpackPlugin({
-        //     title: 'hello',
-        //     filename: 'index.html'
-        // }),
+        new HtmlwebpackPlugin({
+            title: 'hello',
+            filename: 'index.html'
+        }),
         new OpenBrowserPlugin({
             url: 'http://localhost:8080/webpack-dev-server/index.html'
         })

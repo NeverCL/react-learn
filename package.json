@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "webpack  --progress --colors --config webpack.production.config.js"
+    "release": "webpack  --progress --colors --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/NeverCL/react-learn#readme",
   "dependencies": {
+    "antd": "^2.6.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
