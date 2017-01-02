@@ -28,7 +28,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style', 'css')
-        },
+        }
             // {
             //     test: /\.css$/,
             //     loader: 'style!css'//从右往左执行:css解析,style嵌入到js中
