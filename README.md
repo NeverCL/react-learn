@@ -1,6 +1,17 @@
 # react-learn
 React
 
+## todo
+
+- flux
+
+- redux
+
+- animation
+
+- 按需加载
+
+- typescript react
 
 ## 01.typescript + react + webpack
 
