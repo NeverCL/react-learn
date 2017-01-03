@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");//抽取css文件
+var HtmlwebpackPlugin = require('html-webpack-plugin');         //创建html
 
 module.exports = {
     devServer: {
@@ -12,11 +13,11 @@ module.exports = {
     },
     entry: {
         index: './main',
-        vender: ['react', 'react-dom', 'antd']
+        vender: ['react', 'react-dom']
     },
     output: {
         path: 'dist',
-        filename: 'bundle.js'
+        filename: 'js/bundle.js'
     },
     resolve: {
         extensions: ["", ".js", ".jsx", ".tsx"]// 添加需要解析的文件格式
@@ -39,7 +40,11 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),//dev hot
+        new HtmlwebpackPlugin({
+            title: 'hello',
+            filename: 'index.html'
+        }),
         new ExtractTextPlugin('base.css'),
-        new webpack.optimize.CommonsChunkPlugin('vender', 'vender.js')
+        new webpack.optimize.CommonsChunkPlugin('vender', 'js/vender.js')
     ]
 }

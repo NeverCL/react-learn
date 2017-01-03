@@ -3,5 +3,13 @@
         "es2015",
         "react"
     ],
-    "plugins": []
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "antd"
+                //babel-plugin-import will be not working if you add the library in webpack config vender
+            }
+        ]
+    ]
 }

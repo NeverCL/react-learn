@@ -22,7 +22,10 @@ const routes = (
     </Route>
 );
 
+var root = document.createElement('div');
+document.body.appendChild(root);
+
 DOM.render((
     <Router history={hashHistory} routes={routes}>
     </Router>
-), document.getElementById('root'));
+), root);
