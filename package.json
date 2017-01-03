@@ -21,9 +21,11 @@
   "homepage": "https://github.com/NeverCL/react-learn#readme",
   "dependencies": {
     "antd": "^2.6.0",
+    "flux": "^3.1.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-router": "^3.0.0"
+    "react-router": "^3.0.0",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "@types/react": "^0.14.55",
