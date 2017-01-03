@@ -4,12 +4,12 @@
         "react"
     ],
     "plugins": [
-        [
-            "import",
-            {
-                "libraryName": "antd"
-                //babel-plugin-import will be not working if you add the library in webpack config vender
-            }
-        ]
+        // [
+        //     "import",
+        //     {
+        //         "libraryName": "antd"
+        //         //babel-plugin-import will be not working if you add the library in webpack config vender
+        //     }
+        // ]
     ]
 }
