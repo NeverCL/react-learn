@@ -18,7 +18,8 @@ module.exports = {
     },
     output: {
         path: 'dist',
-        filename: 'js/bundle.js'
+        filename: 'js/bundle.js',
+        chunkFilename: '[name].[chunkhash:5].chunk.js'//未在entry中声明,需要打包的文件
     },
     resolve: {
         extensions: ["", ".js", ".jsx", ".tsx"]// 添加需要解析的文件格式

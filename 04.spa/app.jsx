@@ -117,3 +117,5 @@ class App extends Component {
 }
 
 export default App;
+
+// module.exports = App;
