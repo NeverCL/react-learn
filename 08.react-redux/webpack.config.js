@@ -13,7 +13,7 @@ module.exports = {
         port: 8080,
     },
     entry: {
-        index: './main.jsx',
+        index: './main',
         vender: ['react', 'react-dom']
     },
     output: {
@@ -26,7 +26,8 @@ module.exports = {
     devtool: "source-map",// 启用调试
     module: {
         loaders: [{
-            test: /\.jsx$/,
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
             loader: 'babel'
         }, {
             test: /\.css$/,

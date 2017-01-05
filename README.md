@@ -56,7 +56,6 @@ React
 - store 存放状态,变化则影响view
 
 
-
 ## 06.redux
 
 - Reducer 
@@ -75,3 +74,14 @@ React
 
 - store.dispatch
     - store.dispatch(action);
+
+
+## html-webpack-plugin
+
+- [配置文件](https://www.npmjs.com/package/html-webpack-plugin#configuration)
+
+
+
+## react-redux
+
+- [doc](http://redux.js.org/docs/basics/UsageWithReact.html)
