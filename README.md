@@ -58,22 +58,59 @@ React
 
 ## 06.redux
 
+### 名词解释
+- Store
+    - 整个应用只能有一个 Store,通过createStore创建
+    - `import { createStore } from 'redux'; const store = createStore(fn);`
+
+- State
+    - state是某一时刻的store
+    - `const state = store.getState();`
+
+- Action
+    - view不能直接修改state,通过store.dispatch发出action.
+    - action是一个对象,必须包含type属性 [规范](https://github.com/acdlite/flux-standard-action)
+    - `const action = {type: 'ADD_TODO',payload: 'Learn Redux'}`
+
+- Action Creator
+    - 用来生成Action,方便view调用
+    - `const addTodo = (text) => { return {type: 'ADD_TODO',payload: text} }`
+
 - Reducer 
-    - Reducer是一个函数,接收当前state和action,返回新的state.
-    - Store接收action,返回新的state.过程由Reducer执行.
-    - Store.dispatch 方法会调用Reducer的执行.
-    - Reducer是纯函数
+    - view发出的action,store交给reducer来处理,并返回新的state
+    - reducer代码如下
+```js
+const reducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'ADD':
+      return state + action.payload;
+    default: 
+      return state;
+  }
+};
+```
 
-- store.getState()
-    - 返回新的state
+- 拆分Reducer
+    - 对于大型应用来说，State 必然十分庞大，导致 Reducer 函数也十分庞大。
+    - 1.根据state属性拆分reducer
+    - 2.通过redux提供的combineReducers可以将子reducer合并
 
-- store.subscribe
-    - Store 允许使用store.subscribe方法设置监听函数，一旦 State 发生变化，就自动执行这个函数。
-    - store.subscribe方法返回一个函数，调用这个函数就可以解除监听。
-    - 一般用来将计算后的state 赋值到组件上
+
+### API
+- createStore
+    - createStore(fn) :fn为reducer
+    - createStore(fn,state) :state为默认state
+    - createStore(fn,middle,defaultState) :middle为中间件
 
 - store.dispatch
-    - store.dispatch(action);
+    - view发出action的方法
+    - `store.dispatch(addTodo('Learn Redux'))`
+
+- store.subscribe
+    - 监听函数，一旦State发生变化，就自动执行这个函数。
+    - store.subscribe方法返回一个函数，调用这个函数就可以解除监听。
+    - 一般监听render函数
+
 
 
 ## html-webpack-plugin
