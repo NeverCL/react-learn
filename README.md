@@ -100,7 +100,7 @@ const reducer = (state = defaultState, action) => {
 - createStore
     - createStore(fn) :fn为reducer
     - createStore(fn,state) :state为默认state
-    - createStore(fn,middle,defaultState) :middle为中间件
+    - createStore(fn,middle,state) :middle为中间件
 
 - store.dispatch
     - view发出action的方法
@@ -111,7 +111,38 @@ const reducer = (state = defaultState, action) => {
     - store.subscribe方法返回一个函数，调用这个函数就可以解除监听。
     - 一般监听render函数
 
+## Redux-Middleware
 
+- redux-logger
+    - 日志中间件
+    - npm i redux-logger -S
+    - 使用
+```js
+import { applyMiddleware, createStore } from 'redux';
+import createLogger from 'redux-logger';
+const logger = createLogger();
+
+const store = createStore(
+  reducer,
+  applyMiddleware(logger)
+);
+```
+    - logger需要放在最后 `applyMiddleware(thunk, promise, logger)`
+
+- redux-thunk
+    - 改造store.dispatch，使其可以接受函数作为参数
+    - cnpm i redux-thunk -S
+    - 使用
+```js
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+// Note: this API requires redux@>=3.1.0
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk)
+);
+```
 
 ## html-webpack-plugin
 
