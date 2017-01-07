@@ -13,7 +13,7 @@ module.exports = {
         port: 8080,
     },
     entry: {
-        index: './app',
+        index: './main',
         vender: ['react', 'react-dom']
     },
     output: {

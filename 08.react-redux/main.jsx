@@ -1,37 +1,53 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import store from './index';
+import { createStore, applyMiddleware } from 'redux';
+import createLogger from 'redux-logger';
+import { connect, Provider } from 'react-redux';
 
-const Hello = ({name}) => (
-    <div>Hello Component {name} </div>
-)
+const Calc = props => (
+    <div>
+        <h1>{props.value}</h1>
+        <button onClick={props.addFn}>Add</button>
+        <button onClick={props.delFn}>Del</button>
+        <button onClick={() => setInterval(props.addFn, 500)}>Interval</button>
+    </div>
+);
 
-function Home({name}) {
-    return <div>Hello Home Component {name}</div>
-}
+const mapState = (state, prop) => ({
+    value: state
+});
 
-class App extends Component {
-    render() {
-        let input = {
-            value: ''
-        };
-        return (
-            <div>
-                hello world {this.props.name}
-                <input type="text" ref={node => input = node} />
-                <button onClick={x => alert(input.value)}>Click</button>
-            </div>
-        );
+const mapDispatcher = {
+    addFn: () => ({
+        type: 'add'
+    }),
+    delFn: () => ({
+        type: 'del'
+    }),
+};
+
+const mapDispatcher2 = (dispatch, prop) => ({
+    addFn: () => dispatch({ type: 'add' }),
+    delFn: () => dispatch({ type: 'del' })
+})
+
+const App = connect(mapState, mapDispatcher2)(Calc);
+
+const reducer = (state = 0, action) => {
+    switch (action.type) {
+        case 'add':
+            return state + 1;
+        case 'del':
+            return state - 1;
+        default:
+            return state;
     }
-}
+};
+
+const store = createStore(reducer, applyMiddleware(createLogger()));
 
 render((
-    <div>
-        <Hello name="hello-name"></Hello>
-        <Home name="home-name"></Home>
-        <App name="app-name"></App>
-    </div>
-), document.getElementById('root').appendChild(document.createElement('div')));
-
-
-export default App;
+    <Provider store={store}>
+        <App></App>
+    </Provider>
+), document.getElementById('root'));

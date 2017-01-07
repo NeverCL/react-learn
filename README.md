@@ -158,6 +158,60 @@ const store = createStore(
 ); 
 ```
 
+
+## React-Redux
+
+- UI组件
+    - 没有状态(不使用this.state)
+    - 所有数据由参数(this.props)提供
+    - 不使用redux API
+    - demo 
+```js
+const App = props => <span>{props.text}</span>
+```
+
+- 容器组件
+    - 带有内部状态
+    - 使用redux API
+
+- connect()
+    - 将UI组件 => 容器组件
+    - state => props
+    - dispatcher => props
+    - demo
+```js
+connect(
+    mapStateToProps,
+    mapDispatcherToProps
+)(App)
+```
+
+- mapStateToProps()
+    - 建立外部的state和props映射关系
+    - demo
+```js
+const mapStateToProps = (state, prop) =>//这里的prop是容器的prop
+                 { todos: state.todos }
+```
+
+- mapDispatcherToProps()
+    - 定义UI组件哪些操作当做action
+    - 可以是一个函数
+    - 可以是一个对象
+```js
+const mapDispatcherToProps = (dispatch, prop) => //这里的prop是容器的prop
+        {onClick: dispatch({ type: 'add', text: prop.text})};
+
+const mapDispatcherToProps = text => {type: 'add', text};
+```
+
+- Provider
+    - Provider组件可以让子容器组件拿到state
+    - 利用react的context属性
+
+
+
+
 ## html-webpack-plugin
 
 - [配置文件](https://www.npmjs.com/package/html-webpack-plugin#configuration)
