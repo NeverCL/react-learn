@@ -1,3 +1,8 @@
+//本例
+//1. Calc为UI组件
+//2. App为容器组件
+
+
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
