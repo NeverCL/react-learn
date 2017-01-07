@@ -168,6 +168,8 @@ const store = createStore(
     - demo 
 ```js
 const App = props => <span>{props.text}</span>
+//or
+const App = ({text}) => <span>{text}</span>
 ```
 
 - 容器组件

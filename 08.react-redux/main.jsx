@@ -51,7 +51,13 @@ const reducer = (state = 0, action) => {
 
 const store = createStore(reducer, applyMiddleware(createLogger()));
 
-render((
+const Root = ({store}) => (
+    <Provider store={store}>
+        <App></App>
+    </Provider>
+);
+
+render((//也可以使用Root
     <Provider store={store}>
         <App></App>
     </Provider>
