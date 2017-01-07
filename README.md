@@ -111,9 +111,11 @@ const reducer = (state = defaultState, action) => {
     - store.subscribe方法返回一个函数，调用这个函数就可以解除监听。
     - 一般监听render函数
 
+### [awesome-redux](https://github.com/xgrommx/awesome-redux)
+
 ## Redux-Middleware
 
-- redux-logger
+- [redux-logger](https://github.com/evgenyrodionov/redux-logger)
     - 日志中间件
     - npm i redux-logger -S
     - 使用
@@ -127,9 +129,9 @@ const store = createStore(
   applyMiddleware(logger)
 );
 ```
-    - logger需要放在最后 `applyMiddleware(thunk, promise, logger)`
+    - 多个middle`applyMiddleware(thunk, promise, logger)`
 
-- redux-thunk
+- [redux-thunk](https://github.com/gaearon/redux-thunk)
     - 改造store.dispatch，使其可以接受函数作为参数
     - cnpm i redux-thunk -S
     - 使用
@@ -142,6 +144,18 @@ const store = createStore(
   reducer,
   applyMiddleware(thunk)
 );
+```
+
+- [redux-promise](https://github.com/acdlite/redux-promise)
+    - npm i redux-promise -S
+    - 使用
+```js
+import promiseMiddleware from 'redux-promise';
+
+const store = createStore(
+  reducer,
+  applyMiddleware(promiseMiddleware)
+); 
 ```
 
 ## html-webpack-plugin
