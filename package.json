@@ -21,6 +21,7 @@
   "homepage": "https://github.com/NeverCL/react-learn#readme",
   "dependencies": {
     "antd": "^2.6.0",
+    "babel-polyfill": "^6.20.0",
     "flux": "^3.1.2",
     "rc-tween-one": "^0.11.11",
     "react": "^15.4.1",
@@ -30,6 +31,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-promise": "^0.5.3",
+    "redux-saga": "^0.14.2",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {

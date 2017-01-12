@@ -1,13 +1,13 @@
 //本例
 //1. Calc为UI组件
 //2. App为容器组件
-
-
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import { connect, Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import mySaga from './sagas';
 
 const Calc = props => (
     <div>
@@ -49,7 +49,9 @@ const reducer = (state = 0, action) => {
     }
 };
 
-const store = createStore(reducer, applyMiddleware(createLogger()));
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducer, applyMiddleware(sagaMiddleware, createLogger()));
+sagaMiddleware.run(mySaga);
 
 const Root = ({store}) => (
     <Provider store={store}>

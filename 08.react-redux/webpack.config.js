@@ -14,7 +14,7 @@ module.exports = {
     },
     entry: {
         index: './main',
-        vender: ['react', 'react-dom']
+        vender: ['react', 'react-dom', 'babel-polyfill']
     },
     output: {
         path: 'dist',
